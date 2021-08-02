@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "pages",
+  "collectionName": "campaign_pages",
   "info": {
-    "name": "Page",
-    "description": ""
+    "name": "CampaignPage"
   },
   "options": {
     "increments": true,
@@ -22,7 +21,7 @@
       "type": "text"
     },
     "Image": {
-      "model": "file",
+      "collection": "file",
       "via": "related",
       "allowedTypes": [
         "images",

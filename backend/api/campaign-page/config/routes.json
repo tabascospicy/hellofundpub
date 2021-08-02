@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/campaign-pages",
+      "handler": "campaign-page.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/campaign-pages/count",
+      "handler": "campaign-page.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/campaign-pages/:id",
+      "handler": "campaign-page.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/campaign-pages",
+      "handler": "campaign-page.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/campaign-pages/:id",
+      "handler": "campaign-page.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/campaign-pages/:id",
+      "handler": "campaign-page.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
