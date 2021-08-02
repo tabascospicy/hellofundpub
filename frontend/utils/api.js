@@ -8,6 +8,7 @@ export function getStrapiURL(path) {
 export async function fetchAPI(path) {
   const requestUrl = getStrapiURL(path);
   const response = await fetch(requestUrl);
+  console.log({requestUrl})
   const data = await response.json();
   return data;
 }
@@ -29,5 +30,16 @@ export async function getProducts() {
 
 export async function getProduct(slug) {
   const products = await fetchAPI(`/products?slug=${slug}`);
+  
   return products?.[0];
+}
+
+export const getPages  = async () =>{
+  const pages = await fetchAPI("/pages");
+  return pages;
+}
+ export const getPage = async (slug) =>{
+  const page = await fetchAPI(`/pages?Slug=${slug}`);
+  console.log({page})
+  return page?.[0];
 }
