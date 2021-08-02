@@ -8,13 +8,13 @@ const Pages = ({ page }) => {
   if (router.isFallback) {
     return <div>Loading category...</div>
   }
-
+  const ImageProp = page.Image ? {image:page.Image} : {}
   return (
     <div>
       <Head>
         <title>{page.Title} </title>
       </Head>
-      <Navbar />
+      <Navbar donateColor={page.DonationButtonColor} bgColor={page.NavigationOverlayColor} {...ImageProp}/>
       <div className="w-full p-5 flex flex-col justify-between">
         <div>
           <h4 className="mt-1 font-semibold text-lg leading-tight truncate text-gray-700">

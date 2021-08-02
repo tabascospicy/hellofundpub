@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "pages",
   "info": {
-    "name": "CampaignPages",
+    "name": "Pages",
     "description": ""
   },
   "options": {
@@ -21,8 +21,30 @@
     "Description": {
       "type": "text"
     },
-    "image": {
-      "type": "string"
+    "Image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "NavigationOverlayColor": {
+      "type": "string",
+      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+    },
+    "WelcomeBackgroundColor": {
+      "type": "string",
+      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+    },
+    "DonationButtonColor": {
+      "type": "string",
+      "default": "#40916c",
+      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$"
     }
   }
 }

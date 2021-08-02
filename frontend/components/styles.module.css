@@ -2,3 +2,22 @@
   padding-top:20px;
   padding-bottom:20px;
 }
+.row{
+  flex-direction: row;
+  display: flex!important;
+}
+.end{
+  justify-self: flex-end;
+}
+
+
+.unsetImg{
+ 
+  width:150px
+}
+
+.customImg{
+  width: 100% !important;
+  position: relative !important;
+
+}
