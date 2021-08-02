@@ -1,9 +1,19 @@
 import App from "next/app"
+import React from "react"
 import Head from "next/head"
 import Layout from "../components/Layout"
 import { getCategories } from "../utils/api"
 import "../styles/index.css"
-
+import { ThemeProvider, createTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { green, orange } from '@material-ui/core/colors';
+const theme = createTheme({
+  palette: {
+    secondary: {
+      main: orange[500],
+    },
+  },
+});
 const MyApp = ({ Component, pageProps }) => {
   return (
     <Layout categories={pageProps.categories}>
@@ -19,7 +29,10 @@ const MyApp = ({ Component, pageProps }) => {
           src="https://cdn.snipcart.com/themes/v3.0.16/default/snipcart.js"
         />
       </Head>
+      <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Component {...pageProps} />
+      </ThemeProvider>
     </Layout>
   )
 }
