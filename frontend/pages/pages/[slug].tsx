@@ -2,7 +2,7 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import Navbar from "../../components/Navbar";
 import {getPage, getPages } from "../../utils/api"
-import {Button,Grid, Typography,Box} from '@material-ui/core';
+import {Button,Grid, Typography, Card, CardHeader,CardContent,CardActionArea, CardMedia, Box} from '@material-ui/core';
 import {Title} from './styles.module.css';
 
 const Pages = ({ page }) => {
@@ -48,6 +48,11 @@ const Pages = ({ page }) => {
             Learn More
           </Button>
         </Grid>
+        <Grid item xs={2} style={{background:'rgb(0, 0, 0)'}} >.</Grid>
+        <Grid item xs={8}  style={{background:'rgb(0, 0, 0)'}} >
+        <CardMedia style={{height:'500px'}}  component="iframe" src={"https://www.youtube.com/embed/Yn-UfMJ61sg"} />
+        </Grid>
+        <Grid style={{background:'rgb(0, 0, 0)'}} item xs={2}></Grid>
       </Grid>
     </div>
 </>
