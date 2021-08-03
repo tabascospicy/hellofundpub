@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import {getPage, getPages } from "../../utils/api"
 import {Button,Grid, Typography, Card, CardHeader,CardContent,CardActionArea, CardMedia, Box} from '@material-ui/core';
 import {Title} from './styles.module.css';
+import React from "react";
 
 const Pages = ({ page }) => {
   const router = useRouter()
@@ -11,6 +12,15 @@ const Pages = ({ page }) => {
     return <div>Loading category...</div>
   }
   const ImageProp = page.Image ? {image:page.Image} : {}
+  const VideoProp = page.VideoURL ? page.VideoURL :{}
+
+  let VideoExists = false;
+  if (typeof(VideoProp) === "string"){
+    VideoExists = true;
+    
+  }
+  console.log(VideoExists);
+
   return (
     <>
       <Head>
@@ -48,11 +58,16 @@ const Pages = ({ page }) => {
             Learn More
           </Button>
         </Grid>
-        <Grid item xs={2} style={{background:'rgb(0, 0, 0)'}} >.</Grid>
-        <Grid item xs={8}  style={{background:'rgb(0, 0, 0)'}} >
-        <CardMedia style={{height:'500px'}}  component="iframe" src={"https://www.youtube.com/embed/Yn-UfMJ61sg"} />
-        </Grid>
-        <Grid style={{background:'rgb(0, 0, 0)'}} item xs={2}></Grid>
+        {
+          VideoExists && <React.Fragment>          
+          <Grid item xs={2} style={{background:'rgb(0, 0, 0)'}} >.</Grid>
+          <Grid item xs={8}  style={{background:'rgb(0, 0, 0)'}} >
+          <CardMedia style={{height:'500px'}}  component="iframe" src={"https://www.youtube.com/embed/Yn-UfMJ61sg"} />
+          </Grid>
+          <Grid style={{background:'rgb(0, 0, 0)'}} item xs={2}></Grid>
+          </React.Fragment>
+        }
+        
       </Grid>
     </div>
 </>
