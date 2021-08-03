@@ -24,7 +24,6 @@ const Navbar : React.FC<PropsNav> = ({image ="/strapi.png",bgColor="",donateColo
   height:"44",
   width:"150"} : {media:{...image},layout:"fill"};
  
- console.log({bgColor})
   return (
     <AppBar position="sticky" style={{backgroundColor:bgColor}} className={`${padding} `}  >
       <Toolbar>
