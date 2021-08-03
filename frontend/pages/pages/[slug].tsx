@@ -2,6 +2,8 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import Navbar from "../../components/Navbar";
 import {getPage, getPages } from "../../utils/api"
+import {Button,Grid, Typography,Box} from '@material-ui/core';
+import {Title} from './styles.module.css';
 
 const Pages = ({ page }) => {
   const router = useRouter()
@@ -10,21 +12,55 @@ const Pages = ({ page }) => {
   }
   const ImageProp = page.Image ? {image:page.Image} : {}
   return (
-    <div>
+    <>
       <Head>
         <title>{page.Title} </title>
       </Head>
-      <Navbar donateColor={page.DonationButtonColor} bgColor={page.NavigationOverlayColor} {...ImageProp}/>
-      <div className="w-full p-5 flex flex-col justify-between">
-        <div>
-          <h4 className="mt-1 font-semibold text-lg leading-tight truncate text-gray-700">
-           {page.Description}
-          </h4>
-          <div className="mt-1 text-gray-600">{page.Title}</div>
-        </div>
-        </div>
+<Navbar donateColor={page.DonationButtonColor} bgColor={page.NavigationOverlayColor} {...ImageProp}/>
+
+<div >
+    <Grid container spacing={6}>
+    <Grid item xs={12} style={{textAlign: 'center'}}>
+        <Box className={Title} m={6} style={{textAlign: 'center'}}>
+        
+          <Typography variant="h2" >
+          {page.Title}
+          </Typography>
+        </Box> 
+        </Grid> 
+        <Grid item xs={12} style={{textAlign: 'center'}}>
+        <Box className={Title} m={2} style={{textAlign: 'center'}}>
+          <Typography variant="h4" >
+            {page.Description}
+          </Typography>
+          </Box> 
+        </Grid> 
+        <Grid item xs={12} style={{textAlign: 'center'}}>
+           <Button variant="outlined" color="primary" >
+             $0 Raised of $1,100 Goal
+           </Button>
+        </Grid>
+        <Grid item xs={12} style={{textAlign: 'center'}} >
+          <Button style={{marginRight:10,backgroundColor:page.DonationButtonColor || "",color:"white",...margin(10, 10, 10, 5)}} variant="contained" color="secondary" >
+            Donate
+          </Button>
+          <Button variant="outlined" color="primary" >
+            Learn More
+          </Button>
+        </Grid>
+      </Grid>
     </div>
+</>
   )
+}
+
+function margin(a, b, c, d) {
+  return {
+    marginTop: a,
+    marginRight: b ? b : a,
+    marginBottom: c ? c : a,
+    marginLeft: d ? d : (b ? b : a)
+  }
 }
 
 export default Pages;

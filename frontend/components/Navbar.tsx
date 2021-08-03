@@ -4,6 +4,8 @@ import NextImage from "./Image"
 import Container from '@material-ui/core/Container';
 import {padding,row,unsetImg,customImg} from "./styles.module.css"
 import Grid from '@material-ui/core/Grid';
+import AppBar from "@material-ui/core/AppBar"
+import Toolbar from "@material-ui/core/Toolbar"
 import Button from '@material-ui/core/Button';
 type PropsNav = {
   image:string,
@@ -24,8 +26,9 @@ const Navbar : React.FC<PropsNav> = ({image ="/strapi.png",bgColor="",donateColo
  
  console.log({bgColor})
   return (
-    <Container style={{backgroundColor:bgColor}} className={`${padding} ${row} `}  maxWidth={"lg"}>
-      <Link href="/">
+    <AppBar position="sticky" style={{backgroundColor:bgColor}} className={`${padding} `}  >
+      <Toolbar>
+      <Link edge="start" href="/">
         <a className={!isDefault && unsetImg}>
           <NextImage
             {...imageProps}
@@ -34,17 +37,16 @@ const Navbar : React.FC<PropsNav> = ({image ="/strapi.png",bgColor="",donateColo
           />
         </a>
       </Link>
-      <Grid alignItems="center" container justifyContent="flex-end"  >
-        <Grid >
-      <Button style={{marginRight:10}} variant="contained"  >
+      <div style={{marginLeft:"auto"}}>
+      <Button edge="end" style={{marginRight:10}} variant="contained"  >
         Share
       </Button>
-      <Button style={{marginRight:10,backgroundColor:donateColor,color:"white"}} variant="contained" color="secondary" >
+      <Button edge="end" style={{marginRight:10,backgroundColor:donateColor,color:"white"}} variant="contained" color="secondary" >
         Donate
       </Button>
-      </Grid>
-      </Grid>
-    </Container>
+      </div>
+      </Toolbar>
+    </AppBar>
   )
 }
 

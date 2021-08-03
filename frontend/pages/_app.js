@@ -16,7 +16,7 @@ const theme = createTheme({
 });
 const MyApp = ({ Component, pageProps }) => {
   return (
-    <Layout categories={pageProps.categories}>
+    <React.Fragment>
       <Head>
         <link rel="preconnect" href="https://app.snipcart.com" />
         <link rel="preconnect" href="https://cdn.snipcart.com" />
@@ -33,7 +33,7 @@ const MyApp = ({ Component, pageProps }) => {
       <CssBaseline />
       <Component {...pageProps} />
       </ThemeProvider>
-    </Layout>
+    </React.Fragment>
   )
 }
 
