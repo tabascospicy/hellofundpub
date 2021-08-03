@@ -12,8 +12,8 @@
 
 
 .unsetImg{
- 
-  width:150px
+  min-width: 150px;
+  max-height: 100px;
 }
 
 .customImg{
