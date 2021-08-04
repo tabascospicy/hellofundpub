@@ -77,18 +77,6 @@ const Pages = ({ page, classes, className ,ComponentsList }) => {
           </Grid>
           <GetDinamiComponent {...{ComponentsList }} />
         </Grid>
-<<<<<<< HEAD
-      </div>
-    </>
-=======
-        <Grid item xs={12} style={{textAlign: 'center'}} >
-          <Button style={{marginRight:10,backgroundColor:page.DonationButtonColor || "",color:"white",...margin(10, 10, 10, 5)}} variant="contained" color="secondary" >
-            Donate
-          </Button>
-          <Button variant="outlined" color="primary" >
-            Learn More
-          </Button>
-        </Grid>
         {
           VideoExists && <React.Fragment>          
           <Grid item xs={2} style={{background:'rgb(0, 0, 0)'}} >.</Grid>
@@ -99,10 +87,8 @@ const Pages = ({ page, classes, className ,ComponentsList }) => {
           </React.Fragment>
         }
         
-      </Grid>
     </div>
 </>
->>>>>>> 62dec81f66c8e6eb3345f57e3ffdfcd47846e370
   )
 }
 
