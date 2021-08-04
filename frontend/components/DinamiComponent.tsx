@@ -1,25 +1,23 @@
-import Title from "./Title";
-import React from "react";
+import Title from "./Title"
+import React from "react"
+import Carousel from "./Carousel"
 
-const ComponentList:List = {
-  "title":Title
-}
 
 type List = {
-  "title":React.FC<any>
+  "custom.title": React.FC<any>
+  "custom.carousel": React.FC<any>
 }
 
 type DynamiCProps = {
-  name: keyof List
+  __component: keyof List
+}
+const ComponentList: List = {
+  "custom.title": Title,
+  "custom.carousel": Carousel,
+}
+const DynamiComponent: React.FC<DynamiCProps> = ({ ...props }) => {
+  const { __component } = props
+  return ComponentList[__component](props)
 }
 
-
-const DynamiComponent:React.FC<DynamiCProps> = ({...props}) => {
-  const {__component:legalName} = props;
-  const name = legalName.split(".")[1];
-  return (
-    ComponentList[name](props)
-  );
-}
-
-export default DynamiComponent;
+export default DynamiComponent

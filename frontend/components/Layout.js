@@ -5,11 +5,7 @@ import Navbar from "./Navbar"
 const Layout = ({ children }) => {
   return (
     <div className="flex justify-center bg-gray-200">
-
-    
-        
-        <div className="flex-grow">{children}</div>
-
+      <div className="flex-grow">{children}</div>
     </div>
   )
 }

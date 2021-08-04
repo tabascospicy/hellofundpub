@@ -50,10 +50,34 @@
       "type": "dynamiczone",
       "components": [
         "custom.title"
-      ],
+      ]
+    },
     "VideoURL": {
       "type": "string"
+    },
+    "BackgroundImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "PresentationImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
-}
 }

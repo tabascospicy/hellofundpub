@@ -4,16 +4,16 @@ import Head from "next/head"
 import Layout from "../components/Layout"
 import { getCategories } from "../utils/api"
 import "../styles/index.css"
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { green, orange } from '@material-ui/core/colors';
+import { ThemeProvider, createTheme } from "@material-ui/core/styles"
+import CssBaseline from "@material-ui/core/CssBaseline"
+import { green, orange } from "@material-ui/core/colors"
 const theme = createTheme({
   palette: {
     secondary: {
       main: orange[500],
     },
   },
-});
+})
 const MyApp = ({ Component, pageProps }) => {
   return (
     <React.Fragment>
@@ -30,8 +30,8 @@ const MyApp = ({ Component, pageProps }) => {
         />
       </Head>
       <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Component {...pageProps} />
+        <CssBaseline />
+        <Component {...pageProps} />
       </ThemeProvider>
     </React.Fragment>
   )
