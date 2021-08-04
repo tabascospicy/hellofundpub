@@ -14,7 +14,9 @@ type DynamiCProps = {
 }
 
 
-const DynamiComponent:React.FC<DynamiCProps> = ({name,...props}) => {
+const DynamiComponent:React.FC<DynamiCProps> = ({...props}) => {
+  const {__component:legalName} = props;
+  const name = legalName.split(".")[1];
   return (
     ComponentList[name](props)
   );

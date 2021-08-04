@@ -45,6 +45,12 @@
       "type": "string",
       "default": "#40916c",
       "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+    },
+    "ManagedContent": {
+      "type": "dynamiczone",
+      "components": [
+        "custom.title"
+      ]
     }
   }
 }

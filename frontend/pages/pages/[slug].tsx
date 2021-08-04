@@ -5,6 +5,8 @@ import { getPage, getPages } from "../../utils/api"
 import { Button, Grid, Typography, Box } from '@material-ui/core';
 import { container } from './styles.module.css';
 import { withStyles } from '@material-ui/core/styles';
+import DynamiComponent from "../../components/DinamiComponent";
+import GetDinamiComponent from "./../getDinamiComponent"
 import clsx from 'clsx';
 // We can inject some CSS into the DOM.
 const styles = {
@@ -21,7 +23,7 @@ const styles = {
 }
 
 
-const Pages = ({ page, classes, className }) => {
+const Pages = ({ page, classes, className ,ComponentsList }) => {
   const router = useRouter()
   if (router.isFallback) {
     return <div>Loading category...</div>
@@ -33,12 +35,11 @@ const Pages = ({ page, classes, className }) => {
         <title>{page.Title} </title>
       </Head>
       <Navbar donateColor={page.DonationButtonColor} bgColor={page.NavigationOverlayColor} {...ImageProp} />
-
       <div style={{ backgroundColor: page.WelcomeBackgroundColor || "#fafafa" }}>
         <Grid className={container} container spacing={6}>
           <Grid item xs={12} style={{ textAlign: 'center' }}>
             <Box style={{ textAlign: 'center' }}>
-
+              
               <Typography className={classes["MuiTypography-root"]} variant="h2" >
                 {page.Title}
               </Typography>
@@ -46,7 +47,7 @@ const Pages = ({ page, classes, className }) => {
           </Grid>
           <Grid item xs={12} style={{ textAlign: 'center' }}>
             <Box style={{ textAlign: 'center' }}>
-              <Typography className={classes.root} variant="span" >
+              <Typography className={classes.root} >
                 {page.Description}
               </Typography>
             </Box>
@@ -64,6 +65,7 @@ const Pages = ({ page, classes, className }) => {
               Learn More
             </Button>
           </Grid>
+          <GetDinamiComponent {...{ComponentsList }} />
         </Grid>
       </div>
     </>
@@ -82,11 +84,10 @@ function margin(a, b, c, d) {
 export default withStyles(styles)(Pages);
 
 export async function getStaticProps({ params }) {
-  console.log({ page: params.slug })
+ 
   const page = await getPage(params.slug)
-
-
-  return { props: { page } }
+   const ComponentsList  = page.ManagedContent || []; 
+   return { props: { page,ComponentsList } }
 }
 
 export async function getStaticPaths() {

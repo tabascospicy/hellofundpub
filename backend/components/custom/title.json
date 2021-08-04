@@ -1,0 +1,15 @@
+{
+  "collectionName": "Pages components",
+  "info": {
+    "name": "Title",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "my title",
+      "required": true
+    }
+  }
+}

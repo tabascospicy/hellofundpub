@@ -1,23 +1,17 @@
-import {getPage} from "./"
+import { getPage } from "./"
 import DynamiComponent from "../components/DinamiComponent";
 
-const getDinamiComponent = ({page,Components,...props}) => {
-  console.log({Components});
+const GetDinamiComponent = ({ ComponentsList }) => {
   return (
-     <h1>Cargo</h1>
-  );
+    <>
+      {ComponentsList.map((element) => {
+        const name = element.__component.split(".")[1];
+        return DynamiComponent({ name, ...element });
+      })}
+    </>
+  )
 }
 
-export default getDinamiComponent;
+export default GetDinamiComponent;
 
 
-export async function getStaticProps({ params }) {
-
-  const page = await getPage(params.slug);
-  console.log({page})
-  const Components = page.components ? page?. _components.map((element)=>{
-    return DynamiComponent(element)
-  }) : [];
-
-  return { props: { page,Components } }
-}
