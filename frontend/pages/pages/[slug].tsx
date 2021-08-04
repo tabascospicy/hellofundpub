@@ -2,9 +2,10 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import Navbar from "../../components/Navbar";
 import { getPage, getPages } from "../../utils/api"
-import { Button, Grid, Typography, Box } from '@material-ui/core';
+import {Button,Grid, Typography, Card, CardHeader,CardContent,CardActionArea, CardMedia, Box} from '@material-ui/core';
 import { container } from './styles.module.css';
 import { withStyles } from '@material-ui/core/styles';
+import React from "react";
 import DynamiComponent from "../../components/DinamiComponent";
 import GetDinamiComponent from "./../getDinamiComponent"
 import clsx from 'clsx';
@@ -28,7 +29,16 @@ const Pages = ({ page, classes, className ,ComponentsList }) => {
   if (router.isFallback) {
     return <div>Loading category...</div>
   }
-  const ImageProp = page.Image ? { image: page.Image } : {}
+  const ImageProp = page.Image ? {image:page.Image} : {}
+  const VideoProp = page.VideoURL ? page.VideoURL :{}
+
+  let VideoExists = false;
+  if (typeof(VideoProp) === "string"){
+    VideoExists = true;
+    
+  }
+  console.log(VideoExists);
+
   return (
     <>
       <Head>
@@ -67,8 +77,32 @@ const Pages = ({ page, classes, className ,ComponentsList }) => {
           </Grid>
           <GetDinamiComponent {...{ComponentsList }} />
         </Grid>
+<<<<<<< HEAD
       </div>
     </>
+=======
+        <Grid item xs={12} style={{textAlign: 'center'}} >
+          <Button style={{marginRight:10,backgroundColor:page.DonationButtonColor || "",color:"white",...margin(10, 10, 10, 5)}} variant="contained" color="secondary" >
+            Donate
+          </Button>
+          <Button variant="outlined" color="primary" >
+            Learn More
+          </Button>
+        </Grid>
+        {
+          VideoExists && <React.Fragment>          
+          <Grid item xs={2} style={{background:'rgb(0, 0, 0)'}} >.</Grid>
+          <Grid item xs={8}  style={{background:'rgb(0, 0, 0)'}} >
+          <CardMedia style={{height:'500px'}}  component="iframe" src={"https://www.youtube.com/embed/Yn-UfMJ61sg"} />
+          </Grid>
+          <Grid style={{background:'rgb(0, 0, 0)'}} item xs={2}></Grid>
+          </React.Fragment>
+        }
+        
+      </Grid>
+    </div>
+</>
+>>>>>>> 62dec81f66c8e6eb3345f57e3ffdfcd47846e370
   )
 }
 

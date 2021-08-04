@@ -50,7 +50,9 @@
       "type": "dynamiczone",
       "components": [
         "custom.title"
-      ]
+      ],
+    "VideoURL": {
+      "type": "string"
     }
   }
 }
