@@ -1,6 +1,12 @@
 import React from "react"
 import Carousel from "react-material-ui-carousel"
-import { Paper, Button, Container, makeStyles, Typography } from "@material-ui/core"
+import {
+  Paper,
+  Button,
+  Container,
+  makeStyles,
+  Typography,
+} from "@material-ui/core"
 import NextImage from "./Image"
 
 type CarouselProps = {
@@ -9,19 +15,18 @@ type CarouselProps = {
   Title: string
 }
 const useStyles = makeStyles(() => ({
-  section:{
+  section: {
     padding: "8rem 0",
     textAlign: "center",
     paddingLeft: "20%",
-    paddingRight: "20%" ,
-    
+    paddingRight: "20%",
   },
-  title:{
+  title: {
     fontSize: "2rem",
-    opacity:0.8,
-    fontWeight:"500",
-    marginBottom:"4rem"
-  }
+    opacity: 0.8,
+    fontWeight: "500",
+    marginBottom: "4rem",
+  },
 }))
 
 function Item({ item }) {
@@ -34,16 +39,20 @@ function Item({ item }) {
     </Paper>
   )
 }
-const CustomCarousel: React.FC<CarouselProps> = ({ name, Images,Title="" }) => {
-  const classes = useStyles();
+const CustomCarousel: React.FC<CarouselProps> = ({
+  name,
+  Images,
+  Title = "",
+}) => {
+  const classes = useStyles()
   return (
-    <Container className={classes.section}  maxWidth={false}>
+    <Container className={classes.section} maxWidth={false}>
       <Typography className={classes.title} variant={"h2"}>
-         {Title}
+        {Title}
       </Typography>
       <Carousel>
         {Images.map((item, i) => (
-          <div style={{ widt: "100%", height: "40vh" }}>
+          <div key={i} style={{ widt: "100%", height: "40vh" }}>
             <NextImage media={item} />
           </div>
         ))}

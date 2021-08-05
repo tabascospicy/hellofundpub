@@ -18,21 +18,21 @@ const useStyles = makeStyles(() => ({
 type CustomDescriptionProps = {
   content: string
 }
-const Description: React.FC<CustomDescriptionProps> = ({
-  content,
-}) => {
+const Description: React.FC<CustomDescriptionProps> = ({ content }) => {
   const classes = useStyles()
   return (
     <Grid
       item
       xs={12}
-      style={{ textAlign: "center", zIndex: 2, color: "white" , padding:0}}
+      style={{ textAlign: "center", zIndex: 2, color: "white", padding: 0 }}
     >
       <Box style={{ textAlign: "center" }}>
-        <Typography className={classes["MuiTypography-body1"]}>{content}</Typography>
+        <Typography className={classes["MuiTypography-body1"]}>
+          {content}
+        </Typography>
       </Box>
     </Grid>
   )
 }
 
-export default Description;
+export default Description

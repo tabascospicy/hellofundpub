@@ -8,8 +8,8 @@ import React, { Component } from "react"
 // }
 const mapStyles = {
   width: "100%",
-  height: "400px",
-  marginTop: "30px",
+  height: "600px",
+  top: 0,
 }
 
 // export class MapContainer extends Component {
