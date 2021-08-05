@@ -87,6 +87,7 @@
     },
     "Location": {
       "type": "text"
+    },
     "ButtonsGroup": {
       "type": "dynamiczone",
       "components": [

@@ -8,8 +8,8 @@ const useStyles = makeStyles(() => ({
     lineHeight: "2rem",
   },
   "MuiButton-contained": {
-    width: "35vw"
-  }
+    width: "35vw",
+  },
 }))
 type CustomButtonProps = {
   Type: keyof DefinedButtons
@@ -55,14 +55,20 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   large = false,
   ...props
 }) => {
- 
   const classes = useStyles()
   const properties = Buttons[Type]
   const Wrapper = grid ? Grid : React.Fragment
   const c = color === "#ffb703"
   return (
-    <Wrapper item >
-      <Button className={`${ c && classes["MuiButton-contained"] }`} variant="contained" size="large" style={{ backgroundColor: color, color: "white" }}>tocame</Button>
+    <Wrapper item>
+      <Button
+        className={`${c && classes["MuiButton-contained"]}`}
+        variant="contained"
+        size="large"
+        style={{ backgroundColor: color, color: "white" }}
+      >
+        tocame
+      </Button>
     </Wrapper>
   )
 }
