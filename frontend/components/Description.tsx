@@ -1,6 +1,6 @@
 import { Grid, Typography, Box } from "@material-ui/core"
-import { withStyles } from "@material-ui/core/styles"
-const styles = {
+import { makeStyles, withStyles } from "@material-ui/core/styles"
+const useStyles = makeStyles(() => ({
   "MuiTypography-root": {
     fontSize: "5rem",
     textTransform: "uppercase",
@@ -14,28 +14,25 @@ const styles = {
     color: "white",
     lineHeight: "2rem",
   },
-}
+}))
 type CustomDescriptionProps = {
-  classes: {
-    root: string
-  }
   content: string
 }
 const Description: React.FC<CustomDescriptionProps> = ({
-  classes,
   content,
 }) => {
+  const classes = useStyles()
   return (
     <Grid
       item
       xs={12}
-      style={{ textAlign: "center", zIndex: 2, color: "white" }}
+      style={{ textAlign: "center", zIndex: 2, color: "white" , padding:0}}
     >
       <Box style={{ textAlign: "center" }}>
-        <Typography className={classes}>{content}</Typography>
+        <Typography className={classes["MuiTypography-body1"]}>{content}</Typography>
       </Box>
     </Grid>
   )
 }
 
-export default withStyles(styles)(Description)
+export default Description;

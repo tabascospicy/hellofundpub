@@ -4,12 +4,15 @@ import Carousel from "./Carousel"
 import Description from "./Description"
 import DateLocationDescription from "./DatePositionDescription"
 import CustomButton from "./Button"
+import Footer from "./MyFooter"
+
 type List = {
   "custom.title": React.FC<any>
   "custom.carousel": React.FC<any>
   "custom.description": React.FC<any>
   "custom.date-location-description": React.FC<any>
   "groups.buttons": React.FC<any>
+  "custom.footer": React.FC<any>
 }
 
 type DynamiCProps = {
@@ -21,6 +24,7 @@ const ComponentList: List = {
   "custom.description": Description as React.FC,
   "custom.date-location-description": DateLocationDescription,
   "groups.buttons": CustomButton,
+  "custom.footer": Footer,
 }
 
 const DynamiComponent: React.FC<DynamiCProps> = ({ ...props }) => {

@@ -51,8 +51,7 @@
       "components": [
         "custom.title",
         "custom.date-location-description",
-        "custom.description",
-        "custom.carousel"
+        "custom.description"
       ]
     },
     "VideoURL": {
@@ -88,6 +87,13 @@
         "groups.buttons"
       ],
       "required": false
+    },
+    "ExtraContent": {
+      "type": "dynamiczone",
+      "components": [
+        "custom.carousel",
+        "custom.footer"
+      ]
     }
   }
 }

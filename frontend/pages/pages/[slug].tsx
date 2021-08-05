@@ -15,7 +15,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import React from "react"
 import NextImage from "./../../components/Image"
 import GetDinamiComponent from "./../getDinamiComponent"
-
+import BrandFooter from "./../../components/BrandFooter";
 const useStyles = makeStyles(() => ({
   "MuiTypography-root": {
     fontSize: "5rem",
@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-const Pages = ({ page, ComponentsList, PrincipalButtons }) => {
+const Pages = ({ page, ComponentsList, PrincipalButtons, ExtraContent }) => {
   const router = useRouter()
   const classes = useStyles()
   if (router.isFallback) {
@@ -75,7 +75,7 @@ const Pages = ({ page, ComponentsList, PrincipalButtons }) => {
                 media={{ ...backgroundImage }}
               />
             )}
-            <Grid item xs={12} style={{ textAlign: "center", zIndex: 2 }}>
+            <Grid item xs={12} style={{ textAlign: "center", zIndex: 2, padding:0 }}>
               <Box style={{ textAlign: "center" }}>
                 {page.PresentationImage ? (
                   <NextImage
@@ -109,26 +109,11 @@ const Pages = ({ page, ComponentsList, PrincipalButtons }) => {
                 {...{ ComponentsList: PrincipalButtons, grid: true }}
               />
             </Grid>
-            <Grid item xs={12} style={{ textAlign: "center", zIndex: 2 }}>
-              <Button
-                style={{
-                  marginRight: 10,
-                  backgroundColor: page.DonationButtonColor || "",
-                  color: "white",
-                  ...margin(10, 10, 10, 5),
-                }}
-                variant="contained"
-                color="secondary"
-              >
-                Donate
-              </Button>
-              <Button variant="outlined" color="primary">
-                Learn More
-              </Button>
-            </Grid>
           </Grid>
         </Container>
-
+        <GetDinamiComponent
+                {...{ ComponentsList:  ExtraContent }}
+        />
         {VideoExists && (
           <React.Fragment>
             <Grid item xs={2} style={{ background: "rgb(0, 0, 0)" }}>
@@ -144,6 +129,7 @@ const Pages = ({ page, ComponentsList, PrincipalButtons }) => {
             <Grid style={{ background: "rgb(0, 0, 0)" }} item xs={2}></Grid>
           </React.Fragment>
         )}
+        <BrandFooter />
       </div>
     </>
   )
@@ -164,8 +150,8 @@ export async function getStaticProps({ params }) {
   const page = await getPage(params.slug)
   const ComponentsList = page.ManagedContent || []
   const PrincipalButtons = page.ButtonsGroup || []
-
-  return { props: { page, ComponentsList, PrincipalButtons } }
+  const ExtraContent = page.ExtraContent || []
+  return { props: { page, ComponentsList, PrincipalButtons, ExtraContent } }
 }
 
 export async function getStaticPaths() {

@@ -22,7 +22,7 @@ const DateLocationDescription: React.FC<CustomDescriptionProps> = ({
       direction={"row"}
       xs={12}
       justifyContent={"space-around"}
-      style={{ textAlign: "center", zIndex: 2 }}
+      style={{ textAlign: "center", zIndex: 2, padding:0 }}
     >
       <Grid xs={4} item style={{ textAlign: "left", color: "white" }}>
         <Typography className={classes["MuiTypography-body1"]}>

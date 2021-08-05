@@ -14,6 +14,10 @@
     "date": {
       "type": "string",
       "default": "October 2nd 7:00pm  -  10:00pm"
+    },
+    "eventDate": {
+      "type": "date",
+      "default": "2021-08-28T16:00:00.000Z"
     }
   }
 }

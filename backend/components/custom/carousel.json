@@ -2,7 +2,8 @@
   "collectionName": "Utils",
   "info": {
     "name": "Carousel",
-    "icon": "film"
+    "icon": "film",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -17,6 +18,10 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "Title": {
+      "type": "string",
+      "default": "Our Sponsors "
     }
   }
 }
