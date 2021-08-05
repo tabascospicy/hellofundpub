@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
     color: "white",
   },
   testContainer: {
-    height: "600px",
+    height: "500px",
     padding: 0,
   },
   content: {
