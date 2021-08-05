@@ -34,7 +34,6 @@ function Item({ item }) {
     </Paper>
   )
 }
-<<<<<<< HEAD
 const CustomCarousel: React.FC<CarouselProps> = ({ name, Images,Title="" }) => {
   const classes = useStyles();
   return (
@@ -42,11 +41,6 @@ const CustomCarousel: React.FC<CarouselProps> = ({ name, Images,Title="" }) => {
       <Typography className={classes.title} variant={"h2"}>
          {Title}
       </Typography>
-=======
-const CustomCarousel: React.FC<CarouselProps> = ({ name, Images }) => {
-  return (
-    <Container maxWidth={false}>
->>>>>>> a4dbdd7b077796d2c931f2f94ca5f4bea814f323
       <Carousel>
         {Images.map((item, i) => (
           <div style={{ widt: "100%", height: "40vh" }}>
