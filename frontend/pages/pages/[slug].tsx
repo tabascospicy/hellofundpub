@@ -1,12 +1,12 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
 import Navbar from "../../components/Navbar"
+import Video from "../../components/Video"
+import GoogleApiWrapper from "../../components/Location"
 import { getPage, getPages } from "../../utils/api"
 import {
-  Button,
   Grid,
   Typography,
-  CardMedia,
   Box,
   Container,
 } from "@material-ui/core"
@@ -28,6 +28,19 @@ const useStyles = makeStyles(() => ({
   root: {
     fontSize: "1.25rem",
     color: "white",
+  },
+  testContainer: {
+    position: "relative",
+  },
+  content: {
+    gridArea: "1 / 1",
+  },
+  "overlay ": {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    marginTop: 10,
+    marginLeft: 10,
   },
 }))
 
@@ -111,25 +124,24 @@ const Pages = ({ page, ComponentsList, PrincipalButtons, ExtraContent }) => {
             </Grid>
           </Grid>
         </Container>
+        <Container maxWidth={false} style={{ width:"100%", background: "rgb(0, 0, 0)" }}>
+            {VideoExists && <Video url={page.VideoURL} />}
+        </Container>
         <GetDinamiComponent
                 {...{ ComponentsList:  ExtraContent }}
         />
-        {VideoExists && (
-          <React.Fragment>
-            <Grid item xs={2} style={{ background: "rgb(0, 0, 0)" }}>
-              .
-            </Grid>
-            <Grid item xs={8} style={{ background: "rgb(0, 0, 0)" }}>
-              <CardMedia
-                style={{ height: "500px" }}
-                component="iframe"
-                src={"https://www.youtube.com/embed/Yn-UfMJ61sg"}
-              />
-            </Grid>
-            <Grid style={{ background: "rgb(0, 0, 0)" }} item xs={2}></Grid>
-          </React.Fragment>
-        )}
+          <Grid item xs={12} className={classes["testContainer"]}>
+          <GoogleApiWrapper style={{ maxHeight: "400px" }}></GoogleApiWrapper>
+          <Box className={classes["overlay"]} style={{ textAlign: "left" }}>
+            <Typography className={classes["MuiTypography-root"]} variant="h4">
+              {page.EventDay}
+            </Typography>
+          </Box>
+        </Grid>
         <BrandFooter />
+
+      
+       
       </div>
     </>
   )

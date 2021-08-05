@@ -81,6 +81,12 @@
       "required": false,
       "pluginOptions": {}
     },
+    "EventDay": {
+      "type": "date"
+    },
+    "Location": {
+      "type": "text"
+    },
     "ButtonsGroup": {
       "type": "dynamiczone",
       "components": [
