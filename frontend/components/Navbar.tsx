@@ -28,8 +28,7 @@ const Navbar: React.FC<PropsNav> = ({
         height: "44",
         width: "150",
       }
-    : { media: { ...image }, layout: "fill" }
-
+    : { media: { ...image } }
   return (
     <AppBar
       position="sticky"

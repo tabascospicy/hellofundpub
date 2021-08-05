@@ -7,8 +7,14 @@
 }
 
 .container{
-    max-width: 720px;
     padding-top: 3rem;
-    margin: auto!important;
+    position: relative;
+    width: "100%";
+    margin:0;
     z-index: 1;
+}
+
+.wrapper {
+  margin: auto!important;
+  max-width: 720px;
 }

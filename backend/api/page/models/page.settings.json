@@ -49,7 +49,10 @@
     "ManagedContent": {
       "type": "dynamiczone",
       "components": [
-        "custom.title"
+        "custom.title",
+        "custom.date-location-description",
+        "custom.description",
+        "custom.carousel"
       ]
     },
     "VideoURL": {
@@ -78,6 +81,13 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "ButtonsGroup": {
+      "type": "dynamiczone",
+      "components": [
+        "groups.buttons"
+      ],
+      "required": false
     }
   }
 }

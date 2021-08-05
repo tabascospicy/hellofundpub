@@ -6,35 +6,34 @@ import {
   Button,
   Grid,
   Typography,
-  Card,
-  CardHeader,
-  CardContent,
-  CardActionArea,
   CardMedia,
   Box,
+  Container,
 } from "@material-ui/core"
-import { container } from "./styles.module.css"
-import { withStyles } from "@material-ui/core/styles"
+import { container, wrapper } from "./styles.module.css"
+import { makeStyles } from "@material-ui/core/styles"
 import React from "react"
-import DynamiComponent from "../../components/DinamiComponent"
+import NextImage from "./../../components/Image"
 import GetDinamiComponent from "./../getDinamiComponent"
-import clsx from "clsx"
-// We can inject some CSS into the DOM.
-const styles = {
+
+const useStyles = makeStyles(() => ({
   "MuiTypography-root": {
     fontSize: "5rem",
     textTransform: "uppercase",
     lineHeight: "5rem",
+    color: "white",
     margin: "0 auto",
     fontWeight: "900",
   },
   root: {
     fontSize: "1.25rem",
+    color: "white",
   },
-}
+}))
 
-const Pages = ({ page, classes, className, ComponentsList }) => {
+const Pages = ({ page, ComponentsList, PrincipalButtons }) => {
   const router = useRouter()
+  const classes = useStyles()
   if (router.isFallback) {
     return <div>Loading category...</div>
   }
@@ -42,10 +41,11 @@ const Pages = ({ page, classes, className, ComponentsList }) => {
   const VideoProp = page.VideoURL ? page.VideoURL : {}
 
   let VideoExists = false
+  const backgroundImage = page.BackgroundImage ? page.BackgroundImage : null
+
   if (typeof VideoProp === "string") {
     VideoExists = true
   }
-  console.log(VideoExists)
 
   return (
     <>
@@ -60,49 +60,75 @@ const Pages = ({ page, classes, className, ComponentsList }) => {
       <div
         style={{ backgroundColor: page.WelcomeBackgroundColor || "#fafafa" }}
       >
-        <Grid style={{}} className={container} container spacing={6}>
-          <Grid item xs={12} style={{ textAlign: "center" }}>
-            <Box style={{ textAlign: "center" }}>
-              <Typography
-                className={classes["MuiTypography-root"]}
-                variant="h2"
-              >
-                {page.Title}
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} style={{ textAlign: "center" }}>
-            <Box style={{ textAlign: "center" }}>
-              <Typography className={classes.root}>
-                {page.Description}
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} style={{ textAlign: "center" }}>
-            <Button variant="outlined" color="primary">
-              $0 Raised of $1,100 Goal
-            </Button>
-          </Grid>
-          <Grid item xs={12} style={{ textAlign: "center" }}>
-            <Button
-              style={{
-                marginRight: 10,
-                backgroundColor: page.DonationButtonColor || "",
-                color: "white",
-                ...margin(10, 10, 10, 5),
-              }}
-              variant="contained"
-              color="secondary"
+        <Container maxWidth={false} className={container}>
+          <Grid
+            style={{ ...backgroundImage }}
+            className={wrapper}
+            container
+            spacing={6}
+          >
+            {backgroundImage && (
+              <NextImage
+                layout={"fill"}
+                objectFit="cover"
+                style={{ zIndex: 1 }}
+                media={{ ...backgroundImage }}
+              />
+            )}
+            <Grid item xs={12} style={{ textAlign: "center", zIndex: 2 }}>
+              <Box style={{ textAlign: "center" }}>
+                {page.PresentationImage ? (
+                  <NextImage
+                    layout={"responsive"}
+                    objectFit="contain"
+                    objectPosition="start"
+                    media={{ ...page.PresentationImage }}
+                    height={30}
+                    width={50}
+                  />
+                ) : (
+                  <Typography
+                    className={classes["MuiTypography-root"]}
+                    variant="h2"
+                  >
+                    {page.Title}
+                  </Typography>
+                )}
+              </Box>
+            </Grid>
+            <GetDinamiComponent {...{ ComponentsList }} />
+            <Grid
+              container
+              spacing={2}
+              xs={12}
+              direction={"row"}
+              justifyContent="center"
+              style={{ textAlign: "center", zIndex: 2 }}
             >
-              Donate
-            </Button>
-            <Button variant="outlined" color="primary">
-              Learn More
-            </Button>
+              <GetDinamiComponent
+                {...{ ComponentsList: PrincipalButtons, grid: true }}
+              />
+            </Grid>
+            <Grid item xs={12} style={{ textAlign: "center", zIndex: 2 }}>
+              <Button
+                style={{
+                  marginRight: 10,
+                  backgroundColor: page.DonationButtonColor || "",
+                  color: "white",
+                  ...margin(10, 10, 10, 5),
+                }}
+                variant="contained"
+                color="secondary"
+              >
+                Donate
+              </Button>
+              <Button variant="outlined" color="primary">
+                Learn More
+              </Button>
+            </Grid>
           </Grid>
-         
-        </Grid>
-         <GetDinamiComponent {...{ ComponentsList }} />
+        </Container>
+
         {VideoExists && (
           <React.Fragment>
             <Grid item xs={2} style={{ background: "rgb(0, 0, 0)" }}>
@@ -132,12 +158,14 @@ function margin(a, b, c, d) {
   }
 }
 
-export default withStyles(styles)(Pages)
+export default Pages
 
 export async function getStaticProps({ params }) {
   const page = await getPage(params.slug)
   const ComponentsList = page.ManagedContent || []
-  return { props: { page, ComponentsList } }
+  const PrincipalButtons = page.ButtonsGroup || []
+
+  return { props: { page, ComponentsList, PrincipalButtons } }
 }
 
 export async function getStaticPaths() {

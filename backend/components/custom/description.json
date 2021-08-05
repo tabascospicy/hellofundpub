@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_custom_descriptions",
+  "info": {
+    "name": "description",
+    "icon": "align-center"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "string",
+      "default": "brief description",
+      "required": true
+    }
+  }
+}

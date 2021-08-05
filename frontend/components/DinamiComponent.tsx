@@ -1,11 +1,15 @@
 import Title from "./Title"
 import React from "react"
 import Carousel from "./Carousel"
-
-
+import Description from "./Description"
+import DateLocationDescription from "./DatePositionDescription"
+import CustomButton from "./Button"
 type List = {
   "custom.title": React.FC<any>
   "custom.carousel": React.FC<any>
+  "custom.description": React.FC<any>
+  "custom.date-location-description": React.FC<any>
+  "groups.buttons": React.FC<any>
 }
 
 type DynamiCProps = {
@@ -14,10 +18,15 @@ type DynamiCProps = {
 const ComponentList: List = {
   "custom.title": Title,
   "custom.carousel": Carousel,
+  "custom.description": Description as React.FC,
+  "custom.date-location-description": DateLocationDescription,
+  "groups.buttons": CustomButton,
 }
+
 const DynamiComponent: React.FC<DynamiCProps> = ({ ...props }) => {
   const { __component } = props
-  return ComponentList[__component](props)
+  const CmsComponent = ComponentList[__component]
+  return <CmsComponent {...props} />
 }
 
 export default DynamiComponent

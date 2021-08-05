@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_custom_date_location_descriptions",
+  "info": {
+    "name": "DateLocationDescription",
+    "icon": "address-book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "location": {
+      "type": "string",
+      "default": "Example : The Wild Onion Ranch 12112 Old San Antonio Rd, Manchaca, TX 78652"
+    },
+    "date": {
+      "type": "string",
+      "default": "October 2nd 7:00pm  -  10:00pm"
+    }
+  }
+}

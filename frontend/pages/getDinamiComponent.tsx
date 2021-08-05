@@ -1,11 +1,10 @@
 import DynamiComponent from "../components/DinamiComponent"
 
-const GetDinamiComponent = ({ ComponentsList }) => {
+const GetDinamiComponent = ({ ComponentsList, ...props }) => {
   return (
     <>
       {ComponentsList.map((element) => {
-        const name = element.__component.split(".")[1]
-        return DynamiComponent({ name, ...element })
+        return DynamiComponent({ ...element, ...props })
       })}
     </>
   )
