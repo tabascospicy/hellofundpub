@@ -12,12 +12,14 @@
 
 
 .unsetImg{
-  min-width: 150px;
-  max-height: 100px;
+  position:relative;
+  padding-left: 20px;
+  width: 120px;
+    height: 70px;
 }
 
 .customImg{
-  width: 100% !important;
   position: relative !important;
-
+  min-height: 73px;
+  width: 100% !important;
 }

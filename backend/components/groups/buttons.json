@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_groups_buttons",
+  "info": {
+    "name": "Buttons",
+    "icon": "dove"
+  },
+  "options": {},
+  "attributes": {
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "donate",
+        "share",
+        "tickets"
+      ],
+      "default": "donate"
+    },
+    "color": {
+      "type": "string",
+      "default": "#8d6a4f"
+    }
+  }
+}

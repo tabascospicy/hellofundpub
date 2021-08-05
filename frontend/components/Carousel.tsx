@@ -1,40 +1,40 @@
-import React from "react"
-//import Carousel from 'react-material-ui-carousel'
-import { Paper, Button } from "@material-ui/core"
+import React from 'react';
+import Carousel from 'react-material-ui-carousel'
+import { Paper, Button, Container } from '@material-ui/core'
+import NextImage from "./Image";
 
 type CarouselProps = {
-  name: string
+  name: string,
   img: string
 }
 
-function Item({ item }) {
-  return (
-    <Paper>
-      <h2>{item.name}</h2>
-      <p>{item.description}</p>
+function Item({item})
+{
+    return (
+        <Paper>
+            <h2>{item.name}</h2>
+            <p>{item.description}</p>
 
-      <Button className="CheckButton">Check it out!</Button>
-    </Paper>
-  )
+            <Button className="CheckButton">
+                Check it out!
+            </Button>
+        </Paper>
+    )
 }
-const CustomCarousel: React.FC<CarouselProps> = ({ name, img }) => {
-  const items = [
-    {
-      name: "Random Name #1",
-      description: "Probably the most random thing you have ever seen!",
-    },
-    {
-      name: "Random Name #2",
-      description: "Hello World!",
-    },
-  ]
+const CustomCarousel:React.FC<CarouselProps> = ({name,Images}) => {
+
   return (
-    <>
-      {items.map((item, i) => (
-        <Item key={i} item={item} />
-      ))}
-    </>
-  )
+    <Container maxWidth={false}>
+    <Carousel>
+            {
+              
+                Images.map( (item, i) =><div style={{widt:"100%",height:"40vh"}}><NextImage
+                 media={item}
+              /></div> )
+            }
+        </Carousel>
+        </Container>
+  );
 }
 
-export default CustomCarousel
+export default CustomCarousel;

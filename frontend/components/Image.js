@@ -15,11 +15,11 @@ const Image = (props) => {
   return (
     <NextImage
       loader={loader}
-      layout="responsive"
-      objectFit="contain"
-      width={props.media.width}
-      height={props.media.height}
+      layout={props.layout || "fill"}
+      objectFit={props.objectFit || "contain"}
+      objectPosition={props.objectPosition || "center"}
       src={url}
+      {...props}
       alt={alternativeText || ""}
     />
   )
