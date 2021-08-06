@@ -19,24 +19,24 @@ const useStyles = makeStyles(() => ({
     fontSize: "1.3rem",
     color: "black",
     lineHeight: "1rem",
-    fontWeight:"900"
+    fontWeight: "900",
   },
 }))
 const alignText = {
-  display:"flex",
+  display: "flex",
   alignItems: "center",
-  justifyContent:"center",
+  justifyContent: "center",
 }
 const Navbar: React.FC<PropsNav> = ({
   image = {},
   bgColor = "",
   donateColor = "",
-  title = ""
+  title = "",
 }) => {
   const isDefault = typeof image === "string"
   const classes = useStyles()
   const imageProps = { media: { ...image } }
-  console.log({image})
+  console.log({ image })
   return (
     <AppBar
       position="sticky"
@@ -46,11 +46,16 @@ const Navbar: React.FC<PropsNav> = ({
       <Toolbar>
         <Link edge="start" href="/">
           <a style={image === "" ? alignText : {}} className={`${unsetImg}`}>
-            {image === "" ? <Typography className={classes["MuiTypography-body1"]}>{title}</Typography> :  <NextImage
-              {...imageProps}
-              className={`${!isDefault && customImg}`}
-            />}
-          
+            {image === "" ? (
+              <Typography className={classes["MuiTypography-body1"]}>
+                {title}
+              </Typography>
+            ) : (
+              <NextImage
+                {...imageProps}
+                className={`${!isDefault && customImg}`}
+              />
+            )}
           </a>
         </Link>
 
