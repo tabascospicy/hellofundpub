@@ -43,9 +43,9 @@ const Buttons: DefinedButtons = {
     description: "Buy Tickets",
   },
   share: {
-    name: "ticket",
+    name: "share",
     onClick: () => {},
-    description: "Buy Tickets",
+    description: "Share",
   },
   learnMore: {
     name: "learn",
