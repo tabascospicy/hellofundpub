@@ -11,6 +11,8 @@ import React from "react"
 import NextImage from "./../../components/Image"
 import GetDinamiComponent from "./../getDinamiComponent"
 import BrandFooter from "./../../components/BrandFooter"
+import GoogleMaps from "./../../components/Location"
+
 const useStyles = makeStyles(() => ({
   "MuiTypography-root": {
     fontSize: "5rem",
@@ -118,28 +120,10 @@ const Pages = ({ page, ComponentsList, PrincipalButtons, ExtraContent }) => {
             </Grid>
           </Grid>
         </Container>
-        <Grid
-          container xs={12} className={classes["testContainer"]}
-        >
-        <GoogleApiWrapper
-              
-        ></GoogleApiWrapper>
-        <Box className={classes["overlay"]} style={{ textAlign: "left" }}>
-          <Typography
-            className={classes["MuiTypography-root"]}
-            variant="h4"
-          >
-            {page.EventDay}
-          </Typography>
-        </Box>
-        </Grid>
-        <Container
-          maxWidth={false}
-          style={{ width: "100%", background: "rgb(0, 0, 0)" }}
-        >
-          {VideoExists && <Video url={page.VideoURL} />}
-        </Container>
-        <GetDinamiComponent {...{ ComponentsList: ExtraContent }} />
+
+
+        
+        <GetDinamiComponent {...{ ComponentsList: ExtraContent , page }} />
       </div>
       <BrandFooter />
     </>

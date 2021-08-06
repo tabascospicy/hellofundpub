@@ -13,6 +13,7 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "google-map-react": "^2.1.10",
     "google-maps-react": "^2.0.6",
     "next": "^11.0.0",
     "next-auth": "^3.27.3",

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_custom_urls",
+  "info": {
+    "name": "URL",
+    "icon": "ad"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    }
+  }
+}

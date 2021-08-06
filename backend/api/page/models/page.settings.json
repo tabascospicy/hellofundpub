@@ -98,7 +98,9 @@
       "type": "dynamiczone",
       "components": [
         "custom.carousel",
-        "custom.footer"
+        "custom.footer",
+        "custom.video",
+        "custom.location"
       ]
     }
   }

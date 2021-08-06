@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_custom_locations",
+  "info": {
+    "name": "Location",
+    "icon": "search-location"
+  },
+  "options": {},
+  "attributes": {
+    "latitude": {
+      "type": "string"
+    },
+    "longitude": {
+      "type": "string"
+    }
+  }
+}
