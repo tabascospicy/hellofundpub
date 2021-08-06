@@ -1,108 +1,9 @@
-import { Container, Typography, Box } from "@material-ui/core";
-import { Map, GoogleApiWrapper } from "google-maps-react"
+import { Container, Typography, Box, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles"
 import React, { Component } from "react"
-
-// type Props = {
-
-// }
-const mapStyles = {
-  width: "100%",
-  height: "500px",
-  top: 0,
-}
-
-// export class MapContainer extends Component {
-//   constructor(props) {
-//     super(props);
-
-//     this.state = {
-//       stores: [{lat: 47.49855629475769, lng: -122.14184416996333},
-//               {latitude: 47.359423, longitude: -122.021071},
-//               {latitude: 47.2052192687988, longitude: -121.988426208496},
-//               {latitude: 47.6307081, longitude: -122.1434325},
-//               {latitude: 47.3084488, longitude: -122.2140121},
-//               {latitude: 47.5524695, longitude: -122.0425407}]
-//     }
-//   }
-
-//   displayMarkers = () => {
-//     return this.state.stores.map((store, index) => {
-//       return <Marker key={index} id={index} position={{
-//        lat: store.latitude,
-//        lng: store.longitude
-//      }}
-//      onClick={() => console.log("You clicked me!")} />
-//     })
-//   }
-//   render() {
-//     return (
-//         <Map
-//           google={this.props.google}
-//           zoom={8}
-//           style={mapStyles}
-//           initialCenter={{ lat: 47.444, lng: -122.176}}
-//         >
-//           {this.displayMarkers()}
-//         </Map>
-//     );
-//   }
-// }
-
-// const MapContainer: React.FC<Props> = ({google}) => {
-//   return (
-//     <Map
-//     zoom={8}
-//     style={mapStyles}
-//     initialCenter={{ lat: 47.444, lng: -122.176}}
-//   />
-
-//   )
-// }
-
-// export class MapContainer extends Component {
-//   constructor(props) {
-//     super(props)
-//   }
-//   render() {
-//     return (
-//       <Container>
-//       <Map
-//         google={this.props.google}
-//         zoom={8}
-//         style={mapStyles}
-//         initialCenter={{ lat: 47.444, lng: -122.176 }}
-//       />
-//       </Container>
-//     )
-//   }
-// }
-
-// export default GoogleApiWrapper({
-//   apiKey: "AIzaSyCY8XkBGWiGvRGyH8Rwt9T_z0BToYPucQU",
-// })(MapContainer)
-
-// type Props = {
-
-// }
-// const Location: React.FC<Props> = () => {
-//   return (
-//      <Map
-//      apiKey
-//      zoom={8}
-//      google={this.window.google}
-//      style={mapStyles}
-//      initialCenter={{ lat: 47.444, lng: -122.176}}
-//    />
-//   )
-// }
-
-// export default Location
-
-
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 import GoogleMapReact from "google-map-react";
-//import Json Data
-//import data from "./data.json";
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -128,6 +29,7 @@ const useStyles = makeStyles(() => ({
   },
 wrapper: {
   position: "relative",
+  
 },navi: {
   backgroundColor: "red",
   height: 40,
@@ -137,20 +39,23 @@ wrapper: {
   left: 0,
   height: 20,
   padding: 10 ,
-}
+
+},
+squareLocation:{
+  background: "white",
+  padding: "2rem 3rem",
+  borderRadius: 5,
+  maxWidth:"65%",
+  color:"white"
+},
 
 }))
 
 
 const data = [{
-  "id": "ID of FIrst Place",
+  
   "lat":40.756795,
   "lng":-73.954298
-},
-{
-  "id": "ID of Second Place",
-  "lat":40.753167,
-  "lng":-73.968120
 }]
 
 type Props={
@@ -177,11 +82,11 @@ const GoogleMaps: React.FC<Props> =  ({ latitude, longitude,page }) => {
       });
     }
   };
-  console.log("prueba");
+  
   const classes = useStyles()
   return (
-    <div  className={classes.wrapper} >
-    {/* <div  className={classes.navi} ></div> */}
+    <div  className={classes.wrapper}  >
+    
     <div className={classes.navi} style={{ height: "400px", width: "100%" }}>
        <GoogleMapReact
          bootstrapURLKeys={{ key: "AIzaSyCY8XkBGWiGvRGyH8Rwt9T_z0BToYPucQU" }}
@@ -191,14 +96,19 @@ const GoogleMaps: React.FC<Props> =  ({ latitude, longitude,page }) => {
          onGoogleApiLoaded={({ map, maps }) => ModelsMap(map, maps)}
        ></GoogleMapReact>
      </div>
-    <div  className={classes.infoi}>
-      
-      <Box  style={{ textAlign: "left" }}>
-          <Typography variant="h4"
-          >
-            {page.EventDay} 
-            {page.Location}
+    <div  className={classes.infoi}>      
+      <Box className={classes.squareLocation}   style={{ textAlign: "left", backgroundColor: page.DonationButtonColor || "#000" }}>
+    
+       <Typography variant="h6">        
+     
+         <CalendarTodayIcon />  {page.EventDay}            
+       
+          <br></br>
+           <LocationOnIcon /> {page.Location}
+        
           </Typography>
+     
+          
         </Box>
     </div>
   </div>
