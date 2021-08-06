@@ -2,15 +2,18 @@
   "collectionName": "components_custom_locations",
   "info": {
     "name": "Location",
-    "icon": "search-location"
+    "icon": "search-location",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "latitude": {
-      "type": "string"
+      "type": "float",
+      "default": 40.756795
     },
     "longitude": {
-      "type": "string"
+      "type": "float",
+      "default": -73.954298
     }
   }
 }
