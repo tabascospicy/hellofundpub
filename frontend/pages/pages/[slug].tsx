@@ -139,7 +139,7 @@ const Pages = ({ page, ComponentsList, PrincipalButtons, ExtraContent }) => {
         >
           {VideoExists && <Video url={page.VideoURL} />}
         </Container>
-        <GetDinamiComponent {...{ ComponentsList: ExtraContent }} />
+        <GetDinamiComponent {...{ ComponentsList: ExtraContent, page }} />
       </div>
       <BrandFooter />
     </>
