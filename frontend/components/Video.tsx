@@ -1,4 +1,4 @@
-import { CardMedia , Container} from "@material-ui/core"
+import { CardMedia, Container } from "@material-ui/core"
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 
@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
 }))
 
 type Props = {
-  url:any
+  url: any
 }
 
 const Video: React.FC<Props> = ({ url }) => {
@@ -38,15 +38,12 @@ const Video: React.FC<Props> = ({ url }) => {
   //www.youtube.com/embed/YSuo0j2xsj8
   const classes = useStyles()
   return (
-    <Container
-    className={classes.section}
-    maxWidth={false}
-  >
-<CardMedia
-      style={{ height: "500px" }}
-      component="iframe"
-      src={"https://www.youtube.com/embed/" + url}
-    />
+    <Container className={classes.section} maxWidth={false}>
+      <CardMedia
+        style={{ height: "500px" }}
+        component="iframe"
+        src={"https://www.youtube.com/embed/" + url}
+      />
     </Container>
   )
 }

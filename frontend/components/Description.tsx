@@ -5,7 +5,7 @@ const useStyles = makeStyles(() => ({
     fontSize: "5rem",
     textTransform: "uppercase",
     lineHeight: "5rem",
-    color: "white",
+    textColor: "white",
     margin: "0 auto",
     fontWeight: "900",
   },
@@ -17,17 +17,22 @@ const useStyles = makeStyles(() => ({
 }))
 type CustomDescriptionProps = {
   content: string
+  textColor: string
 }
-const Description: React.FC<CustomDescriptionProps> = ({ content }) => {
+const Description: React.FC<CustomDescriptionProps> = ({
+  content,
+  textColor,
+  ...props
+}) => {
   const classes = useStyles()
+  console.log({ props, textColor })
   return (
-    <Grid
-      item
-      xs={12}
-      style={{ textAlign: "center", zIndex: 2, color: "white", padding: 0 }}
-    >
+    <Grid item xs={12} style={{ textAlign: "center", zIndex: 2, padding: 0 }}>
       <Box style={{ textAlign: "center" }}>
-        <Typography className={classes["MuiTypography-body1"]}>
+        <Typography
+          style={{ color: textColor }}
+          className={classes["MuiTypography-body1"]}
+        >
           {content}
         </Typography>
       </Box>

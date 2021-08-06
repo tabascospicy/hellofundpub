@@ -33,7 +33,12 @@ type Props = {
   page: any
 }
 
-const Footer: React.FC<Props> = ({ Title, description, bgColor = null, page }) => {
+const Footer: React.FC<Props> = ({
+  Title,
+  description,
+  bgColor = null,
+  page,
+}) => {
   const classes = useStyles()
   return (
     <Container

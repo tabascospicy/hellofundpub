@@ -35,15 +35,17 @@
     },
     "NavigationOverlayColor": {
       "type": "string",
-      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$",
+      "default": "#fff"
     },
     "WelcomeBackgroundColor": {
       "type": "string",
-      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$",
+      "default": "#fafafa"
     },
     "DonationButtonColor": {
       "type": "string",
-      "default": "#40916c",
+      "default": "#2d6a4f",
       "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$"
     },
     "ManagedContent": {
@@ -52,7 +54,8 @@
         "custom.title",
         "custom.date-location-description",
         "custom.description"
-      ]
+      ],
+      "required": true
     },
     "VideoURL": {
       "type": "string"
@@ -102,6 +105,10 @@
         "custom.video",
         "custom.location"
       ]
+    },
+    "TitleFontColor": {
+      "type": "string",
+      "default": "#000"
     }
   }
 }
