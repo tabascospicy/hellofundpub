@@ -16,10 +16,12 @@
       "type": "uid"
     },
     "Title": {
-      "type": "string"
+      "type": "string",
+      "default": "This is the default title, you can change it on the configuration page "
     },
     "Description": {
-      "type": "text"
+      "type": "text",
+      "default": "Description of your Fundraising, Donation, Store, Custom, RSVP, Event"
     },
     "Image": {
       "model": "file",
@@ -35,15 +37,17 @@
     },
     "NavigationOverlayColor": {
       "type": "string",
-      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$",
+      "default": "#2dd3cc"
     },
     "WelcomeBackgroundColor": {
       "type": "string",
-      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$",
+      "default": "#FFF"
     },
     "DonationButtonColor": {
       "type": "string",
-      "default": "#40916c",
+      "default": "#2dd3cc",
       "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$"
     },
     "ManagedContent": {

@@ -55,10 +55,12 @@ squareLocation:{
 type Props={
   latitude:any,
   longitude:any,
-  page:any
+  bgColor:any,
+  txtColor:any,
+  page:any,
 }
 
-const GoogleMaps: React.FC<Props> =  ({ latitude, longitude,page }) => {
+const GoogleMaps: React.FC<Props> =  ({ latitude, longitude,bgColor,txtColor,page }) => {
   const data = [{
   
     "lat":latitude,
@@ -82,7 +84,7 @@ const GoogleMaps: React.FC<Props> =  ({ latitude, longitude,page }) => {
       });
     }
   };
-  
+
   const classes = useStyles()
   return (
     <div  className={classes.wrapper}  >
@@ -96,10 +98,10 @@ const GoogleMaps: React.FC<Props> =  ({ latitude, longitude,page }) => {
          onGoogleApiLoaded={({ map, maps }) => ModelsMap(map, maps)}
        ></GoogleMapReact>
      </div>
-    <div  className={classes.infoi}>      
-      <Box className={classes.squareLocation}   style={{ textAlign: "left", backgroundColor: page.DonationButtonColor || "#000" }}>
-    
-       <Typography variant="h6">        
+    <div  className={classes.infoi}>       
+      <Box className={classes.squareLocation}   style={{ textAlign: "left", backgroundColor: bgColor || "#000000"  }}>
+      
+       <Typography variant="h6" style={{color: txtColor || "#FFFFFF"}}>        
      
          <CalendarTodayIcon />  {page.EventDay}            
        
