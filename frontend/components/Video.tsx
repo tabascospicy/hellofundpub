@@ -19,7 +19,7 @@ const useStyles = makeStyles(() => ({
   },
 
   section: {
-    padding: "8rem 0",
+    padding: "2rem 0",
     textAlign: "center",
     paddingLeft: "20%",
     paddingRight: "20%",
