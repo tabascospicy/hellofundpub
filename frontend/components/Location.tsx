@@ -65,8 +65,6 @@ const GoogleMaps: React.FC<Props> =  ({ latitude, longitude,page }) => {
     "lng":longitude
   }]
   
-  console.log(latitude)
-  console.log(longitude)
   const ModelsMap = (map, maps) => {
     //instantiate array that will hold your Json Data
     let dataArray = [];
