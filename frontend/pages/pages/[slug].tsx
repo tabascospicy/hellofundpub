@@ -121,9 +121,7 @@ const Pages = ({ page, ComponentsList, PrincipalButtons, ExtraContent }) => {
           </Grid>
         </Container>
 
-
-        
-        <GetDinamiComponent {...{ ComponentsList: ExtraContent , page }} />
+        <GetDinamiComponent {...{ ComponentsList: ExtraContent, page }} />
       </div>
       <BrandFooter />
     </>
