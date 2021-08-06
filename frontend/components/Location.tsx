@@ -31,7 +31,6 @@ const useStyles = makeStyles(() => ({
     position: "relative",
   },
   navi: {
-    backgroundColor: "red",
     height: 40,
   },
   infoi: {
@@ -50,20 +49,28 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-const data = [
-  {
-    lat: 40.756795,
-    lng: -73.954298,
-  },
-]
-
 type Props = {
   latitude: any
   longitude: any
+  bgColor: any
+  txtColor: any
   page: any
 }
 
-const GoogleMaps: React.FC<Props> = ({ latitude, longitude, page }) => {
+const GoogleMaps: React.FC<Props> = ({
+  latitude,
+  longitude,
+  bgColor,
+  txtColor,
+  page,
+}) => {
+  const data = [
+    {
+      lat: latitude,
+      lng: longitude,
+    },
+  ]
+
   const ModelsMap = (map, maps) => {
     //instantiate array that will hold your Json Data
     let dataArray = []
@@ -88,7 +95,7 @@ const GoogleMaps: React.FC<Props> = ({ latitude, longitude, page }) => {
       <div className={classes.navi} style={{ height: "400px", width: "100%" }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyCY8XkBGWiGvRGyH8Rwt9T_z0BToYPucQU" }}
-          defaultCenter={{ lat: 40.756795, lng: -73.954298 }}
+          defaultCenter={{ lat: latitude, lng: longitude }}
           defaultZoom={10}
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => ModelsMap(map, maps)}
@@ -97,12 +104,9 @@ const GoogleMaps: React.FC<Props> = ({ latitude, longitude, page }) => {
       <div className={classes.infoi}>
         <Box
           className={classes.squareLocation}
-          style={{
-            textAlign: "left",
-            backgroundColor: page.DonationButtonColor || "#000",
-          }}
+          style={{ textAlign: "left", backgroundColor: bgColor || "#000000" }}
         >
-          <Typography variant="h6">
+          <Typography variant="h6" style={{ color: txtColor || "#FFFFFF" }}>
             <CalendarTodayIcon /> {page.EventDay}
             <br></br>
             <LocationOnIcon /> {page.Location}

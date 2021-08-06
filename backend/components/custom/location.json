@@ -14,6 +14,16 @@
     "longitude": {
       "type": "float",
       "default": -73.954298
+    },
+    "bgColor": {
+      "type": "string",
+      "default": "#000000",
+      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+    },
+    "txtColor": {
+      "type": "string",
+      "default": "#FFFFFF",
+      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$"
     }
   }
 }
