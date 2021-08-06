@@ -2,14 +2,19 @@
   "collectionName": "components_custom_descriptions",
   "info": {
     "name": "description",
-    "icon": "align-center"
+    "icon": "align-center",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "content": {
       "type": "string",
-      "default": "brief description",
+      "default": "brief description of your campaig, so your viewers will learn what you do",
       "required": true
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#000"
     }
   }
 }

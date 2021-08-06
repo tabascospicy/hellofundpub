@@ -30,9 +30,15 @@ type Props = {
   icons: string[]
   description: string
   bgColor?: string
+  page: any
 }
 
-const Footer: React.FC<Props> = ({ Title, description, bgColor = null }) => {
+const Footer: React.FC<Props> = ({
+  Title,
+  description,
+  bgColor = null,
+  page,
+}) => {
   const classes = useStyles()
   return (
     <Container

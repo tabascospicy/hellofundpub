@@ -36,6 +36,13 @@ const useStyles = makeStyles(() => ({
   "overlay ": {},
 }))
 
+const getDefaultDescription = () => ({
+  __component: "custom.description",
+  id: 4,
+  content: "brief description for your campaign ",
+  textColor: "#000",
+})
+
 const Pages = ({ page, ComponentsList, PrincipalButtons, ExtraContent }) => {
   const router = useRouter()
   const classes = useStyles()
@@ -67,7 +74,7 @@ const Pages = ({ page, ComponentsList, PrincipalButtons, ExtraContent }) => {
       >
         <Container maxWidth={false} className={container}>
           <Grid
-            style={{ ...backgroundImage }}
+            style={{ ...backgroundImage, minHeight: "70vh" }}
             className={wrapper}
             container
             spacing={6}
@@ -98,6 +105,7 @@ const Pages = ({ page, ComponentsList, PrincipalButtons, ExtraContent }) => {
                 ) : (
                   <Typography
                     className={classes["MuiTypography-root"]}
+                    style={{ color: page.TitleFontColor || "#000" }}
                     variant="h2"
                   >
                     {page.Title}
@@ -105,7 +113,14 @@ const Pages = ({ page, ComponentsList, PrincipalButtons, ExtraContent }) => {
                 )}
               </Box>
             </Grid>
-            <GetDinamiComponent {...{ ComponentsList }} />
+            {ComponentsList === [] || !ComponentsList ? (
+              <GetDinamiComponent
+                {...{ ComponentsList: [getDefaultDescription()] }}
+              />
+            ) : (
+              <GetDinamiComponent {...{ ComponentsList }} />
+            )}
+
             <Grid
               container
               spacing={2}

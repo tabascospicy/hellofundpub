@@ -56,7 +56,8 @@
         "custom.title",
         "custom.date-location-description",
         "custom.description"
-      ]
+      ],
+      "required": true
     },
     "VideoURL": {
       "type": "string"
@@ -106,6 +107,10 @@
         "custom.video",
         "custom.location"
       ]
+    },
+    "TitleFontColor": {
+      "type": "string",
+      "default": "#000"
     }
   }
 }
