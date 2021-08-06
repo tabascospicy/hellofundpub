@@ -67,6 +67,7 @@ const Pages = ({ page, ComponentsList, PrincipalButtons, ExtraContent }) => {
       <Navbar
         donateColor={page.DonationButtonColor}
         bgColor={page.NavigationOverlayColor}
+        title={page.Title}
         {...ImageProp}
       />
       <div

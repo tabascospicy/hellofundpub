@@ -25,7 +25,7 @@ const Description: React.FC<CustomDescriptionProps> = ({
   ...props
 }) => {
   const classes = useStyles()
-  console.log({ props, textColor })
+  
   return (
     <Grid item xs={12} style={{ textAlign: "center", zIndex: 2, padding: 0 }}>
       <Box style={{ textAlign: "center" }}>

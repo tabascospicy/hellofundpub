@@ -7,28 +7,36 @@ import Grid from "@material-ui/core/Grid"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Button from "@material-ui/core/Button"
+import { makeStyles, Typography } from "@material-ui/core"
 type PropsNav = {
-  image: string
+  image: {}
   bgColor: string
   donateColor: string
+  title: string
 }
-
+const useStyles = makeStyles(() => ({
+  "MuiTypography-body1": {
+    fontSize: "1.3rem",
+    color: "black",
+    lineHeight: "1rem",
+    fontWeight:"900"
+  },
+}))
+const alignText = {
+  display:"flex",
+  alignItems: "center",
+  justifyContent:"center",
+}
 const Navbar: React.FC<PropsNav> = ({
-  image = "/strapi.png",
+  image = {},
   bgColor = "",
   donateColor = "",
+  title = ""
 }) => {
   const isDefault = typeof image === "string"
-
-  const imageProps = isDefault
-    ? {
-        src: `${image}`,
-        alt: "home",
-        className: "logo",
-        height: "44",
-        width: "150",
-      }
-    : { media: { ...image } }
+  const classes = useStyles()
+  const imageProps = { media: { ...image } }
+  console.log({image})
   return (
     <AppBar
       position="sticky"
@@ -37,11 +45,12 @@ const Navbar: React.FC<PropsNav> = ({
     >
       <Toolbar>
         <Link edge="start" href="/">
-          <a className={`${unsetImg}`}>
-            <NextImage
+          <a style={image === "" ? alignText : {}} className={`${unsetImg}`}>
+            {image === "" ? <Typography className={classes["MuiTypography-body1"]}>{title}</Typography> :  <NextImage
               {...imageProps}
               className={`${!isDefault && customImg}`}
-            />
+            />}
+          
           </a>
         </Link>
 
