@@ -31,7 +31,6 @@ wrapper: {
   position: "relative",
   
 },navi: {
-  backgroundColor: "red",
   height: 40,
 },infoi: {
   position: "absolute",
@@ -52,11 +51,6 @@ squareLocation:{
 }))
 
 
-const data = [{
-  
-  "lat":40.756795,
-  "lng":-73.954298
-}]
 
 type Props={
   latitude:any,
@@ -65,6 +59,14 @@ type Props={
 }
 
 const GoogleMaps: React.FC<Props> =  ({ latitude, longitude,page }) => {
+  const data = [{
+  
+    "lat":latitude,
+    "lng":longitude
+  }]
+  
+  console.log(latitude)
+  console.log(longitude)
   const ModelsMap = (map, maps) => {
     //instantiate array that will hold your Json Data
     let dataArray = [];
@@ -90,7 +92,7 @@ const GoogleMaps: React.FC<Props> =  ({ latitude, longitude,page }) => {
     <div className={classes.navi} style={{ height: "400px", width: "100%" }}>
        <GoogleMapReact
          bootstrapURLKeys={{ key: "AIzaSyCY8XkBGWiGvRGyH8Rwt9T_z0BToYPucQU" }}
-         defaultCenter={{ lat: 40.756795, lng: -73.954298 }}
+         defaultCenter={{ lat:latitude, lng: longitude }}
          defaultZoom={10}
          yesIWantToUseGoogleMapApiInternals
          onGoogleApiLoaded={({ map, maps }) => ModelsMap(map, maps)}
