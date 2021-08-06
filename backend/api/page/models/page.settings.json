@@ -17,7 +17,7 @@
     },
     "Title": {
       "type": "string",
-      "default": "This is the default title, you can change it on the configuration page "
+      "default": "This is the default title"
     },
     "Description": {
       "type": "text",
@@ -38,7 +38,7 @@
     "NavigationOverlayColor": {
       "type": "string",
       "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$",
-      "default": "#2dd3cc"
+      "default": "#fff"
     },
     "WelcomeBackgroundColor": {
       "type": "string",

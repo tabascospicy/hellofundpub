@@ -8,7 +8,7 @@ const HomePage = ({ products }) => {
       <Head>
         <title>Strapi Next.js E-commerce</title>
       </Head>
-      <ProductsList products={products} />
+    
     </div>
   )
 }

@@ -35,8 +35,8 @@ const Navbar: React.FC<PropsNav> = ({
 }) => {
   const isDefault = typeof image === "string"
   const classes = useStyles()
-  const imageProps = { media: { ...image } }
-  console.log({ image })
+  const imageProps = image !== {} ? { media: { ...image } } : {}
+  
   return (
     <AppBar
       position="sticky"
@@ -45,8 +45,8 @@ const Navbar: React.FC<PropsNav> = ({
     >
       <Toolbar>
         <Link edge="start" href="/">
-          <a style={image === "" ? alignText : {}} className={`${unsetImg}`}>
-            {image === "" ? (
+          <a style={image === "" && image !== {} && imageProps !== {} ? alignText : {color:"white"}} className={`${unsetImg}`}>
+            {image === "" || imageProps !== {} ? (
               <Typography className={classes["MuiTypography-body1"]}>
                 {title}
               </Typography>

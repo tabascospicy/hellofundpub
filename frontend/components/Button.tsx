@@ -64,7 +64,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   ...props
 }) => {
   const classes = useStyles()
-  const properties = Buttons[Type]
+  const properties = Buttons[Type] ? Buttons[Type] : Buttons["ticket"]
   const Wrapper = grid ? Grid : React.Fragment
   const c = color === "#ffb703"
 
